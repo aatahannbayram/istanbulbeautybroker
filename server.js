@@ -4,7 +4,7 @@ const http = require('node:http');
 
 const port = Number(process.env.PORT) || 3000;
 const imagePath = path.join(__dirname, 'src', 'assets', 'hero.jpg');
-
+const imageData = fs.existsSync(imagePath) ? fs.readFileSync(imagePath).toString('base64') : '';
 const page = `<!doctype html>
 <html lang="tr">
   <head>
@@ -41,7 +41,7 @@ const page = `<!doctype html>
         position: fixed;
         inset: 0;
         z-index: -2;
-        background: linear-gradient(105deg, rgba(9,9,9,.98) 0%, rgba(9,9,9,.82) 37%, rgba(9,9,9,.25) 100%), url('/assets/hero.jpg') center / cover;
+        background: linear-gradient(105deg, rgba(9,9,9,.98) 0%, rgba(9,9,9,.82) 37%, rgba(9,9,9,.25) 100%), url('data:image/jpeg;base64,${imageData}') center / cover;
         filter: saturate(.72);
         opacity: .7;
       }
