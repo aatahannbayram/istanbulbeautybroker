@@ -124,7 +124,7 @@ const page = `<!doctype html>
         margin: 22px 0 16px;
         max-width: 580px;
         font-family: 'Playfair Display', Georgia, serif;
-        font-size: clamp(4rem, 16vw, 8.6rem);
+        font-size: clamp(3.25rem, 13vw, 7rem);
         font-weight: 500;
         letter-spacing: -.07em;
         line-height: .84;
@@ -178,7 +178,7 @@ const page = `<!doctype html>
         body::before { background-position: 71% center; opacity: .84; }
         main { align-items: center; }
         .content { margin-left: 5vw; }
-        h1 { font-size: clamp(6.5rem, 11vw, 10.5rem); }
+        h1 { font-size: clamp(5rem, 8vw, 7.5rem); }
       }
       @media (max-width: 420px) {
         .contact-card { align-items: flex-start; flex-direction: column; gap: 8px; }
