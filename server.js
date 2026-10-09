@@ -214,13 +214,18 @@ const page = `<!doctype html>
 </html>`;
 
 const server = http.createServer((req, res) => {
-  if (req.url === '/assets/hero.jpg') {
+  const requestPath = new URL(req.url, `http://${req.headers.host || 'localhost'}`).pathname;
+  if (requestPath === '/assets/hero.jpg' || requestPath === '/hero.jpg') {
     fs.readFile(imagePath, (error, data) => {
       if (error) {
         res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
         return res.end('Görsel bulunamadı');
       }
-      res.writeHead(200, { 'Content-Type': 'image/jpeg', 'Cache-Control': 'public, max-age=31536000, immutable' });
+      res.writeHead(200, {
+        'Content-Type': 'image/jpeg',
+        'Content-Length': data.length,
+        'Cache-Control': 'public, max-age=31536000, immutable'
+      });
       res.end(data);
     });
     return;
