@@ -40,7 +40,7 @@ const page = `<!doctype html>
         content: '';
         position: fixed;
         inset: 0;
-        z-index: -2;
+        z-index: 0;
         background: linear-gradient(105deg, rgba(9,9,9,.98) 0%, rgba(9,9,9,.82) 37%, rgba(9,9,9,.25) 100%), url('data:image/jpeg;base64,${imageData}') center / cover;
         filter: saturate(.72);
         opacity: .7;
@@ -49,7 +49,7 @@ const page = `<!doctype html>
         content: '';
         position: fixed;
         inset: 0;
-        z-index: -1;
+        z-index: 1;
         pointer-events: none;
         opacity: .13;
         background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
@@ -62,6 +62,8 @@ const page = `<!doctype html>
         padding: 28px 22px 24px;
         display: flex;
         flex-direction: column;
+        position: relative;
+        z-index: 2;
       }
       header {
         display: flex;
